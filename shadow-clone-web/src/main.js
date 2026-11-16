@@ -1,6 +1,8 @@
 // Demo page wiring. The reusable part is ShadowCloneEngine; this file is only the UI around it.
 import { ShadowCloneEngine } from './shadow-clone.js';
 
+const hide = () => { img.closest('.side-box').hidden = true; };
+
 const $ = (id) => document.getElementById(id);
 const statusEl = $('status');
 const setStatus = (msg, isError = false) => {

@@ -13,14 +13,22 @@
       <p class="sub">Make the hand sign at your webcam. Everything runs in your browser; no video leaves your device.</p>
     </header>
 
-    <section class="stage-wrap">
-      <canvas id="stage" width="960" height="540" aria-label="Camera view with shadow clones"></canvas>
-      <div id="placeholder" class="placeholder">
-        <button id="start" class="primary">Start camera</button>
-        <p>Your browser will ask for camera permission.</p>
+    <div class="stage-row">
+      <div class="side-box">
+        <img class="side" src="assets/images/naruto_picOne.png" alt="">
       </div>
-      <video id="cam" playsinline muted hidden></video>
-    </section>
+          <section class="stage-wrap">
+            <canvas id="stage" width="960" height="540" aria-label="Camera view with shadow clones"></canvas>
+              <div id="placeholder" class="placeholder">
+                <button id="start" class="primary">Start camera</button>
+                <p>Your browser will ask for camera permission.</p>
+              </div>
+            <video id="cam" playsinline muted hidden></video>
+          </section>
+        <div class="side-box">
+        <img class="side" src="assets/images/naruto_picTwo.png" alt="">
+      </div>
+    </div>
 
     <p id="status" class="status" role="status">Press Start to begin.</p>
 

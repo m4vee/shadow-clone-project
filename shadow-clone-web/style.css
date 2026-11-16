@@ -28,7 +28,29 @@ h1 { margin: 0 0 4px; font-size: 1.75rem; letter-spacing: -0.01em; }
 h2 { margin: 0 0 4px; font-size: 0.95rem; }
 .sub { margin: 0 0 20px; color: var(--muted); }
 
+.stage-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 16px;
+}
+.side-box {
+  flex: 1 1 0;              /* both sides share the space the camera leaves */
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+.side {
+  width: 100%;              /* fill the side's width; height follows the picture */
+  height: auto;
+  max-height: 85vh;         /* stops a very tall picture running off the screen */
+  object-fit: contain;
+  border-radius: 12px;
+}
+
 .stage-wrap {
+  flex:0 1 min(960px, 56%);         
+  min-width: 0;
   position: relative;
   aspect-ratio: 16 / 9;
   background: #000;
@@ -115,11 +137,6 @@ kbd {
   color: var(--text);
 }
 
-@media (max-width: 560px) {
-  h1 { font-size: 1.4rem; }
-  .controls { padding: 12px; }
-}
-
 .spawn-clone-img {
   width: 150px
 }
@@ -127,3 +144,27 @@ kbd {
 .release-clone-img {
   width: 140px
 }
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.4rem; }
+  .controls { padding: 12px; }
+}
+
+@media (max-width: 760px) {
+  .stage-row { flex-wrap: wrap; }
+  .stage-wrap { order: -1; flex: 1 1 100%; }
+  .side-box { flex: 1 1 calc(50% - 8px); }
+}
+
+/* paste at the VERY END of style.css */
+main { max-width: none; padding: 24px clamp(16px, 3vw, 48px) 48px; }
+.stage-row { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.stage-wrap { flex: 0 1 min(960px, 56%); }
+.side-box {
+  position: static;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;     /* temporary: shows each side's real space */
+}
+.side { position: static; inset: auto; width: 100%; height: auto; max-height: 85vh; object-fit: contain; }
